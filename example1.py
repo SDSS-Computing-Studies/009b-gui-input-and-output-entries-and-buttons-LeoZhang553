@@ -10,6 +10,7 @@ from tkinter import *
 win = tk.Tk()
 
 # variables to be used in Tkinter widgets don't follow the standard syntax
+
 # that we developed with basic Python programming
 # We need to first create the variable and use new data types
 labelData = StringVar()

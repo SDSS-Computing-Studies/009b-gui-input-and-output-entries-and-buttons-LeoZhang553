@@ -12,3 +12,69 @@ The program should display the factored form in an Entry widget.
 Extension: make the + between a,b and b,c buttons that will toggle
 between + and -.
 """
+
+import tkinter as tk 
+from tkinter import *
+
+win = tk.Tk()
+win.title("Factor")
+win.geometry("600x200")
+
+eoutput = StringVar()
+eoutput.set("Output goes here")
+
+
+
+def clickFunction():
+    answer = ""
+    num1 = e1.get()
+    num2 = e2.get()
+    num1=int(num1)
+    num2=int(num2)
+    c=float((num1)**2 - 4*1*num2)
+    a=1
+    if c >=0 and c == int(c):
+        while a <= num2:
+            if (num2)%a == 0:
+                b=(num2)/a
+                if a*b == num1:
+                    a=str(a)
+                    b=str(b)
+                    answer=str("(x + "+a+")(x + "+b+")")
+                    break
+            a+=1
+    else:
+        answer="cannot be factored"
+
+    e3.delete(0,END)
+    e3.insert(0,answer)
+
+l1=tk.Label(win,text="enter the coefficients: ")
+l2=tk.Label(win,text="Factored form: ")
+l3=tk.Label(win,text="x^2 + ")
+l4=tk.Label(win,text="x + ")
+
+b1 = tk.Button(win, text="Click to factor",command=clickFunction)
+
+e1=tk.Entry(win,width=5)
+e2=tk.Entry(win,width=5)
+e3=tk.Entry(win, width=20, textvariable=eoutput)
+
+
+l1.grid(row=1,column=1)
+l3.grid(row=1,column=2)
+
+e1.grid(row=1,column=3)
+
+l4.grid(row=1,column=4)
+
+e2.grid(row=1,column=5)
+
+
+b1.grid(row=2, column=1, columnspan=5)
+
+
+l2.grid(row=3,column=1)
+e3.grid(row=3,column=2,columnspan=4)
+
+win.mainloop()
