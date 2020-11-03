@@ -36,12 +36,28 @@ def clickFunction():
     if c >=0 and c == int(c) and math.sqrt(c)==int(math.sqrt(c)):
         while a <= num2:
             if (num2)%a == 0:
-                b=(num2)/a
+                b=int((num2)/a)
                 if a+b == num1:                    
                     b=str(b)
                     answer="(x + "+str(a)+")(x + "+b+")"
-
             a+=1
+        
+        if num1 < 0 or num2 < 0:
+            a=-1
+            while abs(a) < num2:
+                if (num2)%a == 0:
+                    b=int((num2)/a)
+                    if a+b == num1:                    
+                        b=str(b)
+                        if int(b)>0:
+                            answer="(x "+str(a)+")(x + "+b+")"
+                        elif int(a)>0:
+                            answer="(x + "+str(a)+")(x "+b+")"
+                        else:
+                            answer="(x "+str(a)+")(x "+b+")"
+
+                a-=1
+        
     else:
         answer="cannot be factored"
 
