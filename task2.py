@@ -16,6 +16,8 @@ between + and -.
 import tkinter as tk 
 from tkinter import *
 
+import math
+
 win = tk.Tk()
 win.title("Factor")
 win.geometry("600x200")
@@ -23,25 +25,22 @@ win.geometry("600x200")
 eoutput = StringVar()
 eoutput.set("Output goes here")
 
-
-
 def clickFunction():
-    answer = ""
+    answer=""
     num1 = e1.get()
     num2 = e2.get()
-    num1=int(num1)
-    num2=int(num2)
+    num1=float(num1)
+    num2=float(num2)
     c=float((num1)**2 - 4*1*num2)
     a=1
-    if c >=0 and c == int(c):
+    if c >=0 and c == int(c) and math.sqrt(c)==int(math.sqrt(c)):
         while a <= num2:
             if (num2)%a == 0:
                 b=(num2)/a
-                if a*b == num1:
-                    a=str(a)
+                if a+b == num1:                    
                     b=str(b)
-                    answer=str("(x + "+a+")(x + "+b+")")
-                    break
+                    answer="(x + "+str(a)+")(x + "+b+")"
+
             a+=1
     else:
         answer="cannot be factored"
